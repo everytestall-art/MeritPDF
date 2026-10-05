@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f4ef">
+    <title>รวมไฟล์ PDF | Paperform</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="Paperform หน้าหลัก">
+          <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span>paperform</span>
+        </a>
+        <div class="local-badge"><span class="status-dot"></span> ทำงานบนเครื่องนี้</div>
+      </header>
+
+      <main>
+        <section class="intro" aria-labelledby="page-title">
+          <p class="eyebrow">เครื่องมือจัดการเอกสาร <span>·</span> PDF</p>
+          <h1 id="page-title">รวมเอกสาร<br><em>ในลำดับของคุณ</em></h1>
+          <p class="intro-copy">วางไฟล์ PDF เรียงตามต้องการ แล้วรวมเป็นไฟล์เดียวได้ทันที</p>
+        </section>
+
+        <section class="workspace" aria-label="พื้นที่รวมไฟล์ PDF">
+          <div class="main-column">
+            <label class="dropzone" id="dropzone" for="file-input">
+              <input id="file-input" type="file" accept="application/pdf,.pdf" multiple>
+              <span class="upload-icon" aria-hidden="true">
+                <svg viewBox="0 0 28 28" fill="none"><path d="M14 19V5m0 0L8.5 10.5M14 5l5.5 5.5M5 17v5a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="drop-title">ลากไฟล์มาวางที่นี่</span>
+              <span class="drop-subtitle">หรือ <span class="browse-link">เลือกไฟล์จากเครื่อง</span></span>
+              <span class="drop-meta">PDF เท่านั้น <span>·</span> สูงสุด 100 MB รวม</span>
+            </label>
+
+            <div class="file-section">
+              <div class="list-heading">
+                <h2>ไฟล์ที่เลือก</h2>
+                <span id="file-count" class="file-count">0 ไฟล์</span>
+              </div>
+              <div id="file-list" class="file-list" aria-live="polite">
+                <div class="empty-state" id="empty-state">
+                  <span class="empty-rule"></span>
+                  <p>รายการของคุณจะปรากฏตรงนี้</p>
+                </div>
+              </div>
+              <p id="error-message" class="error-message" role="alert" hidden></p>
+            </div>
+          </div>
+
+          <aside class="side-column">
+            <div class="summary-heading"><span class="summary-index">01</span><span>สรุปงาน</span></div>
+            <div class="summary-stat">
+              <span class="stat-label">จำนวนไฟล์</span>
+              <strong id="summary-count">0</strong>
+            </div>
+            <div class="summary-stat">
+              <span class="stat-label">ขนาดรวม</span>
+              <strong id="summary-size">0 KB</strong>
+            </div>
+            <div class="summary-note">
+              <span class="lock-icon" aria-hidden="true">⌑</span>
+              <p>ไฟล์ของคุณไม่ถูกอัปโหลดไปที่อื่น การรวมเกิดขึ้นบนเครื่องนี้</p>
+            </div>
+            <button id="merge-button" class="merge-button" type="button" disabled>
+              <span>รวมไฟล์ PDF</span>
+              <span class="button-arrow" aria-hidden="true">→</span>
+            </button>
+            <p class="button-hint">เลือกอย่างน้อย 2 ไฟล์เพื่อเริ่ม</p>
+            <div id="progress" class="progress" aria-live="polite" hidden>
+              <span class="spinner" aria-hidden="true"></span>
+              <span>กำลังรวมไฟล์...</span>
+            </div>
+          </aside>
+        </section>
+      </main>
+
+      <footer class="footer"><span>Paperform <span class="footer-dot">/</span> PDF Merger</span><span>ทำงานในเครื่องของคุณ</span></footer>
+    </div>
+    <script src="{{ url_for('static', filename='app.js') }}" defer></script>
+  </body>
+</html>
